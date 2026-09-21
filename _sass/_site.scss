@@ -25,7 +25,7 @@ $md-grey-300: #dadce0;
 $md-grey-200: #e8eaed;
 $md-grey-100: #f1f3f4;
 $md-surface-dark: #303134; // elevated surface on the dark ground
-// accent: AFP blue (figstyle palette C0) by day; CWQ gold on the CWQ navy ground by night (owner's choice, 2026-09-21).
+// accent: AFP blue (figstyle palette C0) by day; the CWQ note blue, lifted for the navy ground, by night (owner's choice, 2026-09-21).
 // Navy is the constant: the day ink is the night ground. Tokens from the figstyle `cwq` profile / cwq-assets.
 $afp-blue: #2e2cb8;
 $cwq-navy: #162d3d; // day ink
@@ -36,7 +36,7 @@ $cwq-panel-hover: #264a60;
 $cwq-rule-dark: #2a4356; // night hairlines
 $cwq-ink-dark: #e7edf1; // night body text
 $cwq-muted-dark: #c9d3da; // night secondary text
-$cwq-gold: #fabd1e; // night accent (CWQ SI gold = AFP C7)
+$cwq-note-blue-lifted: #66acde; // night accent: CWQ note blue #137fcc lifted 35 % toward white
 $afp-blue-tint: #eaeaf8; // 10 % blue on white
 $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 
@@ -69,8 +69,8 @@ html[data-theme="dark"] {
   --global-bg-color: #{$cwq-ground};
   --global-text-color: #{$cwq-ink-dark};
   --global-text-color-light: #{$cwq-muted-dark};
-  --global-theme-color: #{$cwq-gold};
-  --global-hover-color: #{$cwq-gold};
+  --global-theme-color: #{$cwq-note-blue-lifted};
+  --global-hover-color: #{$cwq-note-blue-lifted};
   --global-hover-text-color: #{$cwq-ground};
   --global-code-bg-color: #{$cwq-panel};
   --global-divider-color: #{$cwq-rule-dark};
@@ -85,7 +85,7 @@ html[data-theme="dark"] {
   --global-danger-block: #{$md-red-300};
   --site-card-tint: #{$cwq-panel};
   --site-card-tint-hover: #{$cwq-panel-hover};
-  --site-rule-color: #{$cwq-gold};
+  --site-rule-color: #{$cwq-note-blue-lifted};
 }
 
 $font-sans:
