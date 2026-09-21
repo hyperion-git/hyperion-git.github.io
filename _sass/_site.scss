@@ -188,7 +188,7 @@ small,
 // and the same pattern: a bold element (the first name, or an accent icon) followed by Light text.
 .post-header {
   margin: 0 0 1.75rem;
-  max-width: 40rem; // same measure as the content, so the portrait never overlaps the description
+  max-width: var(--site-measure); // same measure as the content, so the portrait never overlaps the description
 
   .post-title {
     font-size: 2.25rem;
@@ -349,13 +349,24 @@ footer.sticky-bottom {
   line-height: 1.55;
 }
 
-// reading measure: about 70 characters of Source Serif at 17 px; narrow viewports simply use their own width
+// reading measure: about 70 characters of Source Serif at 17 px. Where the portrait sits beside the text
+// (>= 768px) the column also yields to it: the portrait takes 21 % of the container plus a 3rem gutter.
+:root {
+  --site-measure: 40rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --site-measure: min(40rem, calc(79% - 3rem));
+  }
+}
+
 .note-body,
 .post-content,
 .entry-list,
 .publications,
 .projects {
-  max-width: 40rem;
+  max-width: var(--site-measure);
 }
 
 .note-body p,
@@ -633,7 +644,7 @@ footer.sticky-bottom {
   box-shadow: none; // plain round picture, no z-depth shadow
 }
 
-@media (min-width: 576px) {
+@media (min-width: 768px) {
   .post {
     position: relative;
   }
@@ -648,25 +659,18 @@ footer.sticky-bottom {
   }
 
   .post > article > .clearfix {
-    max-width: 40rem; // the landing-page bio: the same measure as every other page
+    max-width: var(--site-measure); // the landing-page bio: the same measure as every other page
   }
 }
 
-// below the float breakpoint the portrait sits centred above the content, at a modest size
-@media (max-width: 575.98px) {
+// below 768px the portrait sits centred above the heading, at a modest size
+@media (max-width: 767.98px) {
   .profile.site-profile {
     float: none;
     width: 50%;
     margin: 0 auto 1.5rem;
   }
 
-  .profile .profile-social .contact-icons {
-    white-space: nowrap;
-
-    a {
-      margin: 0 0.2rem;
-    }
-  }
 }
 
 // ---------- social icons: half the theme size, accent colour ----------
@@ -678,9 +682,10 @@ footer.sticky-bottom {
 
   .contact-icons {
     font-size: 1.25rem;
+    white-space: nowrap; // five icons on one row at every width
 
     a {
-      margin: 0 0.3rem;
+      margin: 0 0.2rem;
     }
   }
 }
