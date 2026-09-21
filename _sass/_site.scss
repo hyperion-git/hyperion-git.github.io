@@ -235,6 +235,11 @@ small,
   font-weight: 600;
   margin-top: 3rem;
   margin-bottom: 1.25rem;
+  color: var(--global-theme-color);
+
+  > a {
+    color: var(--global-theme-color) !important; // the gem sets an inline color: inherit on this link
+  }
 }
 
 // only the gem's own hard-coded lowercase headings get capitalised; authored headings keep their case
@@ -649,10 +654,18 @@ footer.sticky-bottom {
 
 // below the float breakpoint the portrait sits centred above the content, at a modest size
 @media (max-width: 575.98px) {
-  .site-profile {
+  .profile.site-profile {
     float: none;
-    width: 45%;
-    margin: 0 auto 1.25rem;
+    width: 50%;
+    margin: 0 auto 1.5rem;
+  }
+
+  .profile .profile-social .contact-icons {
+    white-space: nowrap;
+
+    a {
+      margin: 0 0.2rem;
+    }
   }
 }
 
