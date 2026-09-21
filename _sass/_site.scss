@@ -25,9 +25,18 @@ $md-grey-300: #dadce0;
 $md-grey-200: #e8eaed;
 $md-grey-100: #f1f3f4;
 $md-surface-dark: #303134; // elevated surface on the dark ground
-// accent: AFP blue (figstyle palette C0) on light; Material blue 300 on the dark ground (owner's choice, 2026-09-21)
+// accent: AFP blue (figstyle palette C0) by day; CWQ gold on the CWQ navy ground by night (owner's choice, 2026-09-21).
+// Navy is the constant: the day ink is the night ground. Tokens from the figstyle `cwq` profile / cwq-assets.
 $afp-blue: #2e2cb8;
-$md-blue-300: #64b5f6;
+$cwq-navy: #162d3d; // day ink
+$cwq-mid-gray: #475a65; // day secondary text
+$cwq-ground: #0f212d; // night ground
+$cwq-panel: #1e3b4e; // night highlight fill (cards, code)
+$cwq-panel-hover: #264a60;
+$cwq-rule-dark: #2a4356; // night hairlines
+$cwq-ink-dark: #e7edf1; // night body text
+$cwq-muted-dark: #c9d3da; // night secondary text
+$cwq-gold: #fabd1e; // night accent (CWQ SI gold = AFP C7)
 $afp-blue-tint: #eaeaf8; // 10 % blue on white
 $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 
@@ -35,8 +44,8 @@ $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 
 :root {
   --global-bg-color: #ffffff;
-  --global-text-color: #{$md-grey-900};
-  --global-text-color-light: #{$md-grey-700};
+  --global-text-color: #{$cwq-navy};
+  --global-text-color-light: #{$cwq-mid-gray};
   --global-theme-color: #{$afp-blue};
   --global-hover-color: #{$afp-blue};
   --global-hover-text-color: #ffffff;
@@ -45,9 +54,9 @@ $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
   --global-card-bg-color: #ffffff;
   --global-highlight-color: #{$md-red-600};
   --global-footer-bg-color: #ffffff; // footer mirrors the header bar: page ground, hairline, light text
-  --global-footer-text-color: #{$md-grey-700};
-  --global-footer-link-color: #{$md-grey-700}; // footer links in the text colour; only the separators carry the accent
-  --global-back-to-top-bg-color: rgba(32, 33, 36, 0.4);
+  --global-footer-text-color: #{$cwq-mid-gray};
+  --global-footer-link-color: #{$cwq-mid-gray}; // footer links in the text colour; only the separators carry the accent
+  --global-back-to-top-bg-color: rgba(22, 45, 61, 0.4);
   --global-tip-block: #{$md-green-600};
   --global-warning-block: #{$md-yellow-600};
   --global-danger-block: #{$md-red-600};
@@ -57,26 +66,26 @@ $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #{$md-grey-900};
-  --global-text-color: #{$md-grey-200};
-  --global-text-color-light: #{$md-grey-500};
-  --global-theme-color: #{$md-blue-300};
-  --global-hover-color: #{$md-blue-300};
-  --global-hover-text-color: #{$md-grey-900};
-  --global-code-bg-color: #{$md-surface-dark};
-  --global-divider-color: #{$md-grey-800};
-  --global-card-bg-color: #{$md-surface-dark};
+  --global-bg-color: #{$cwq-ground};
+  --global-text-color: #{$cwq-ink-dark};
+  --global-text-color-light: #{$cwq-muted-dark};
+  --global-theme-color: #{$cwq-gold};
+  --global-hover-color: #{$cwq-gold};
+  --global-hover-text-color: #{$cwq-ground};
+  --global-code-bg-color: #{$cwq-panel};
+  --global-divider-color: #{$cwq-rule-dark};
+  --global-card-bg-color: #{$cwq-panel};
   --global-highlight-color: #{$md-red-300};
-  --global-footer-bg-color: #{$md-grey-900};
-  --global-footer-text-color: #{$md-grey-500};
-  --global-footer-link-color: #{$md-grey-500};
-  --global-back-to-top-bg-color: rgba(232, 234, 237, 0.5);
+  --global-footer-bg-color: #{$cwq-ground};
+  --global-footer-text-color: #{$cwq-muted-dark};
+  --global-footer-link-color: #{$cwq-muted-dark};
+  --global-back-to-top-bg-color: rgba(231, 237, 241, 0.5);
   --global-tip-block: #{$md-green-300};
   --global-warning-block: #{$md-yellow-300};
   --global-danger-block: #{$md-red-300};
-  --site-card-tint: rgba(100, 181, 246, 0.16);
-  --site-card-tint-hover: rgba(100, 181, 246, 0.26);
-  --site-rule-color: #{$md-blue-300};
+  --site-card-tint: #{$cwq-panel};
+  --site-card-tint-hover: #{$cwq-panel-hover};
+  --site-rule-color: #{$cwq-gold};
 }
 
 $font-sans:
@@ -576,7 +585,7 @@ footer.sticky-bottom {
     margin-top: 0;
   }
 
-  // tinted cards: Material "selected" surfaces (blue 50 on white, 16 % blue 300 on the dark ground)
+  // tinted cards: blue 50 on white by day; the CWQ panel fill on the navy ground by night
   .card {
     border-radius: 0.5rem;
     box-shadow: none;
