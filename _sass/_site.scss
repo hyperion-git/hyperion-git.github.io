@@ -681,6 +681,12 @@ footer.sticky-bottom {
   letter-spacing: 0.02em;
   color: var(--global-text-color-light);
   margin-top: 0.4rem;
+
+  i {
+    font-size: 0.8em;
+    margin-right: 0.15em;
+    color: var(--global-text-color-light);
+  }
 }
 
 .social .contact-icons {
