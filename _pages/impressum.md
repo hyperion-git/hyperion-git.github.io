@@ -7,20 +7,19 @@ nav: false
 no_profile: true
 ---
 
-<!-- TODO before publishing: replace every ⟨…⟩ placeholder with the real data. A ladungsfähige Anschrift is required;
-     a business address is fine. Remove this comment afterwards. -->
+<div class="note-body" markdown="1">
 
 ## Angaben gemäß § 5 DDG
 
-Alexander Friedrich
-⟨Straße und Hausnummer⟩
-⟨PLZ Ort⟩
+Alexander Friedrich<br>
+Römerstraße 118<br>
+89077 Ulm<br>
 Deutschland
 
-**Kontakt**
-E-Mail: ⟨adresse@domain.tld⟩
+**Kontakt**<br>
+E-Mail: {% al_email_protect_link "contact@randomfluctuations.net" %}
 
-**Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV**
+**Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV**<br>
 Alexander Friedrich, Anschrift wie oben.
 
 ## Datenschutzhinweis
@@ -38,3 +37,5 @@ Die Inhalte dieser Website wurden mit Sorgfalt erstellt; für Richtigkeit, Volls
 ## Urheberrecht und Lizenz
 
 © 2026 Alexander Friedrich. Quelltext und Inhalte dieser Website stehen unter der [MIT-Lizenz](https://github.com/hyperion-git/hyperion-git.github.io/blob/main/LICENSE), soweit nicht anders angegeben; das zugrunde liegende Jekyll-Gerüst [al-folio](https://github.com/alshedivat/al-folio) ist ebenfalls MIT-lizenziert. Verlinkte wissenschaftliche Veröffentlichungen unterliegen den Bedingungen des jeweiligen Verlags; eingebettete Schriften und Symbole stehen unter ihren eigenen Lizenzen (SIL OFL, CC BY, MIT), die im Quelltext beiliegen.
+
+</div>
