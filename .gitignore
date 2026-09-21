@@ -24,3 +24,6 @@ __pycache__/
 # fontawesome.version and academicons.version in _config.yml
 !assets/libs/webfonts/
 !assets/libs/fonts/
+
+# Windows download-provenance sidecars that WSL copies bring along
+*:Zone.Identifier

@@ -2,7 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
-profile_picture: placeholder.svg # round placeholder until a page picture exists
+profile_picture: projects.jpg # page picture in the round slot top-right (file in assets/img/)
 description: Software and open research artefacts I maintain or contributed to.
 nav: true
 nav_order: 2
