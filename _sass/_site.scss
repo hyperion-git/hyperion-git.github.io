@@ -46,7 +46,7 @@ $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
   --global-highlight-color: #{$md-red-600};
   --global-footer-bg-color: #ffffff; // footer mirrors the header bar: page ground, hairline, light text
   --global-footer-text-color: #{$md-grey-700};
-  --global-footer-link-color: #{$afp-blue};
+  --global-footer-link-color: #{$md-grey-700}; // footer links in the text colour; only the separators carry the accent
   --global-back-to-top-bg-color: rgba(32, 33, 36, 0.4);
   --global-tip-block: #{$md-green-600};
   --global-warning-block: #{$md-yellow-600};
@@ -69,7 +69,7 @@ html[data-theme="dark"] {
   --global-highlight-color: #{$md-red-300};
   --global-footer-bg-color: #{$md-grey-900};
   --global-footer-text-color: #{$md-grey-500};
-  --global-footer-link-color: #{$afp-blue-lifted};
+  --global-footer-link-color: #{$md-grey-500};
   --global-back-to-top-bg-color: rgba(232, 234, 237, 0.5);
   --global-tip-block: #{$md-green-300};
   --global-warning-block: #{$md-yellow-300};
@@ -362,10 +362,25 @@ footer.sticky-bottom {
 
 .note-body h2,
 .note-body h3,
+.note-body h4,
 .post-content h2,
-.post-content h3 {
+.post-content h3,
+.post-content h4 {
   font-family: $font-sans;
   margin-top: 2rem;
+}
+
+// section headings (h2) in the accent; subsections and below in the text colour
+.note-body h2,
+.post-content h2 {
+  color: var(--global-theme-color);
+}
+
+.note-body h3,
+.note-body h4,
+.post-content h3,
+.post-content h4 {
+  color: var(--global-text-color);
 }
 
 // long display equations scroll sideways instead of being clipped by the reading measure

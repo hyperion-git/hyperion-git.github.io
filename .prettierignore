@@ -9,3 +9,4 @@ _data/citations.yml
 
 # front matter of the jekyll-scholar entry template must stay on two lines
 _layouts/bib.liquid
+_includes/footer.liquid

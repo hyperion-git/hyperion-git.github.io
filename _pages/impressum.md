@@ -35,6 +35,6 @@ Betroffene haben nach Art. 15 ff. DSGVO die Rechte auf Auskunft, Berichtigung, L
 
 Die Inhalte dieser Website wurden mit Sorgfalt erstellt; für Richtigkeit, Vollständigkeit und Aktualität wird keine Gewähr übernommen. Externe Links wurden zum Zeitpunkt der Verlinkung geprüft; auf die aktuellen und zukünftigen Inhalte verlinkter Seiten besteht kein Einfluss.
 
-## Urheberrecht
+## Urheberrecht und Lizenz
 
-Texte, Abbildungen und Software auf dieser Website unterliegen dem deutschen Urheberrecht, soweit nicht anders angegeben. Wissenschaftliche Veröffentlichungen unterliegen den Bedingungen des jeweiligen Verlags.
+© 2026 Alexander Friedrich. Quelltext und Inhalte dieser Website stehen unter der [MIT-Lizenz](https://github.com/hyperion-git/hyperion-git.github.io/blob/main/LICENSE), soweit nicht anders angegeben; das zugrunde liegende Jekyll-Gerüst [al-folio](https://github.com/alshedivat/al-folio) ist ebenfalls MIT-lizenziert. Verlinkte wissenschaftliche Veröffentlichungen unterliegen den Bedingungen des jeweiligen Verlags; eingebettete Schriften und Symbole stehen unter ihren eigenen Lizenzen (SIL OFL, CC BY, MIT), die im Quelltext beiliegen.

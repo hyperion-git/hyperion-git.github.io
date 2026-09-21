@@ -3,9 +3,7 @@
   accent-coloured dot instead of full stops. Otherwise the gem's include as shipped (v1.0.15).
 {% endcomment %}
 {% capture footer_contents %}
-  <span class="footer-item">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</span>
   {% if site.footer_text and site.footer_text != blank %}
-    <span class="footer-sep" aria-hidden="true">&middot;</span>
     <span class="footer-item">{{ site.footer_text }}</span>
   {% endif %}
   {% if site.impressum_path %}
