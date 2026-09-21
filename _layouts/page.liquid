@@ -1,0 +1,36 @@
+---
+layout: default
+---
+{% comment %}
+  Local override of al_folio_core's page layout: adds the site-wide portrait (see
+  _includes/site_profile.liquid) top-right, as on the landing page. Otherwise the gem's layout.
+{% endcomment %}
+{% if page._styles %}
+  <!-- Page/Post style -->
+  <style type="text/css">
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-description">{{ page.description }}</p>
+  </header>
+
+  <article>
+    {% unless page.no_profile %}{% include site_profile.liquid %}{% endunless %}
+    {{ content }}
+  </article>
+
+  {% if page.related_publications %}
+    <h2>References</h2>
+    <div class="publications">
+      {% bibliography --cited_in_order %}
+    </div>
+  {% endif %}
+
+  {% if site.plugins contains 'al_comments' %}
+    {% include plugins/al_comments.liquid %}
+  {% endif %}
+</div>

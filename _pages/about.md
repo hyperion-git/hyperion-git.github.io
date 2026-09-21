@@ -4,11 +4,7 @@ title: About
 permalink: /
 subtitle: Physicist, PhD
 
-profile:
-  align: right
-  image: prof_pic.png
-  image_circular: true # crops the image to make it circular
-  more_info:
+profile: true # the portrait itself is site-wide: `profile_image` in _config.yml, rendered by _includes/site_profile.liquid
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page

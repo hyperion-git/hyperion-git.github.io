@@ -1,9 +1,38 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
+# Venue badges (the `abbr` field of _bibliography/papers.bib) link to the journal's home page.
+# Colours are left to the theme so every badge carries the site accent.
 
-"PhysRev":
-  url: https://journals.aps.org/
+"PRA":
+  url: https://journals.aps.org/pra/
 
-"Vision":
-  color: "#009f36"
+"PRD":
+  url: https://journals.aps.org/prd/
+
+"PRR":
+  url: https://journals.aps.org/prresearch/
+
+"PRX Quantum":
+  url: https://journals.aps.org/prxquantum/
+
+"Sci. Adv.":
+  url: https://www.science.org/journal/sciadv
+
+"EPJ QT":
+  url: https://epjquantumtechnology.springeropen.com/
+
+"APPA":
+  url: https://appol.ifpan.edu.pl/
+
+"AVS QS":
+  url: https://pubs.aip.org/avs/aqs
+
+"Prog. Opt.":
+  url: https://www.sciencedirect.com/bookseries/progress-in-optics
+
+"Opt. Express":
+  url: https://opg.optica.org/oe/
+
+"arXiv":
+  url: https://arxiv.org/
+
+"PhD Thesis":
+  url: https://oparu.uni-ulm.de/

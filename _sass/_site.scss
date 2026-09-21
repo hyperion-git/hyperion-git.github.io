@@ -188,6 +188,7 @@ small,
 // and the same pattern: a bold element (the first name, or an accent icon) followed by Light text.
 .post-header {
   margin: 0 0 1.75rem;
+  max-width: 40rem; // same measure as the content, so the portrait never overlaps the description
 
   .post-title {
     font-size: 2.25rem;
@@ -512,6 +513,25 @@ small,
 
     .card-body {
       padding: 1rem;
+      padding-bottom: 2.5rem; // room for the repository icon
+      position: relative;
+    }
+
+    // repository icon pinned to the bottom-right corner of the card
+    .github-icon {
+      position: absolute;
+      right: 0.9rem;
+      bottom: 0.7rem;
+      margin: 0;
+
+      .icon {
+        margin: 0;
+      }
+
+      .gh-icon {
+        font-size: 1.125rem;
+        color: var(--global-theme-color);
+      }
     }
 
     .card-title {
@@ -531,7 +551,7 @@ small,
 
 @media (min-width: 576px) {
   .profile {
-    width: 22.5%;
+    width: 21%; // leaves a ~4.5rem gutter next to the 40rem text column
 
     img {
       box-shadow: none; // plain round picture, no z-depth shadow
@@ -543,8 +563,17 @@ small,
     }
 
     &.float-right + .clearfix {
-      margin-right: calc(22.5% + 4.5rem);
+      max-width: 40rem; // the same measure as every other page
     }
+  }
+}
+
+// below the float breakpoint the portrait sits centred above the content, at a modest size
+@media (max-width: 575.98px) {
+  .site-profile {
+    float: none;
+    width: 45%;
+    margin: 0 auto 1.25rem;
   }
 }
 
