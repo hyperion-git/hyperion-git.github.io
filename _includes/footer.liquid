@@ -1,0 +1,41 @@
+{% comment %}
+  Local override of al_folio_core's footer include: the footer elements are separated by an
+  accent-coloured dot instead of full stops. Otherwise the gem's include as shipped (v1.0.15).
+{% endcomment %}
+{% capture footer_contents %}
+  <span class="footer-item">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</span>
+  {% if site.footer_text and site.footer_text != blank %}
+    <span class="footer-sep" aria-hidden="true">&middot;</span>
+    <span class="footer-item">{{ site.footer_text }}</span>
+  {% endif %}
+  {% if site.impressum_path %}
+    <span class="footer-sep" aria-hidden="true">&middot;</span>
+    <span class="footer-item"><a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a></span>
+  {% endif %}
+  {% if site.last_updated %}
+    <span class="footer-sep" aria-hidden="true">&middot;</span>
+    <span class="footer-item">Last updated {{ 'now' | date: '%B %-d, %Y' }}</span>
+  {% endif %}
+{% endcapture %}
+
+{% if site.footer_fixed %}
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% else %}
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    {% if site.newsletter.enabled %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center.liquid %}
+      {% else %}
+        {% include newsletter.liquid %}
+      {% endif %}
+    {% endif %}
+
+    <div class="container">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% endif %}

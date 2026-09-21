@@ -35,3 +35,7 @@
 
 // Site-local design tokens and typography (Material console palette, ClockWerQ type scale)
 @use "site";
+
+/* Self-hosted web fonts (assets/css/fonts.css). A plain CSS import must follow the @use rules; Sass hoists it
+   to the top of the compiled stylesheet. */
+@import url("/assets/css/fonts.css");

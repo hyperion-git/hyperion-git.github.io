@@ -44,9 +44,9 @@ $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
   --global-divider-color: #{$md-grey-300};
   --global-card-bg-color: #ffffff;
   --global-highlight-color: #{$md-red-600};
-  --global-footer-bg-color: #{$md-grey-900};
-  --global-footer-text-color: #{$md-grey-300};
-  --global-footer-link-color: #ffffff;
+  --global-footer-bg-color: #ffffff; // footer mirrors the header bar: page ground, hairline, light text
+  --global-footer-text-color: #{$md-grey-700};
+  --global-footer-link-color: #{$afp-blue};
   --global-back-to-top-bg-color: rgba(32, 33, 36, 0.4);
   --global-tip-block: #{$md-green-600};
   --global-warning-block: #{$md-yellow-600};
@@ -67,9 +67,9 @@ html[data-theme="dark"] {
   --global-divider-color: #{$md-grey-800};
   --global-card-bg-color: #{$md-surface-dark};
   --global-highlight-color: #{$md-red-300};
-  --global-footer-bg-color: #{$md-grey-100};
-  --global-footer-text-color: #{$md-grey-900};
-  --global-footer-link-color: #{$md-grey-900};
+  --global-footer-bg-color: #{$md-grey-900};
+  --global-footer-text-color: #{$md-grey-500};
+  --global-footer-link-color: #{$afp-blue-lifted};
   --global-back-to-top-bg-color: rgba(232, 234, 237, 0.5);
   --global-tip-block: #{$md-green-300};
   --global-warning-block: #{$md-yellow-300};
@@ -197,13 +197,17 @@ small,
     letter-spacing: -0.02em;
     margin: 0 0 0.25rem;
 
+    color: var(--global-theme-color); // section titles in the accent, like the first name
+
     // the name keeps its bold-first-name / light-surname pattern
     &:has(.font-weight-bold) {
       font-weight: 300;
+      color: var(--global-text-color);
     }
 
     .font-weight-bold {
       font-weight: 600;
+      color: var(--global-theme-color);
     }
   }
 
@@ -249,6 +253,32 @@ small,
   border-color: var(--site-rule-color);
 }
 
+// ---------- footer: same treatment as the navbar (hairline rule, light small text) ----------
+
+footer.fixed-bottom,
+footer.sticky-bottom {
+  border-top: 1px solid var(--global-divider-color);
+  font-family: $font-sans;
+  font-weight: 300;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+
+  .container {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+
+  a {
+    color: var(--global-footer-link-color);
+  }
+
+  .footer-sep {
+    color: var(--global-theme-color);
+    font-weight: 600;
+    margin: 0 0.45em;
+  }
+}
+
 // ---------- navigation ----------
 
 .navbar {
@@ -259,6 +289,7 @@ small,
 
     .font-weight-bold {
       font-weight: 600;
+      color: var(--global-theme-color);
     }
   }
 
@@ -370,11 +401,11 @@ small,
   }
 
   .entry-title {
-    color: var(--global-text-color);
+    color: var(--global-theme-color);
 
     &:hover {
       color: var(--global-theme-color);
-      text-decoration: none;
+      text-decoration: underline;
     }
   }
 
@@ -546,25 +577,29 @@ small,
   }
 }
 
-// ---------- profile picture: 75 % of the theme default width, raised to the name line;
-// the bio column stops at the picture (equal line widths) with a 4.5 rem gutter ----------
+// ---------- portrait: anchored to the top-right of the page container, independent of the
+// header height, 21 % wide next to the 40rem text column (~4.5rem gutter) ----------
+
+.profile img {
+  box-shadow: none; // plain round picture, no z-depth shadow
+}
 
 @media (min-width: 576px) {
-  .profile {
-    width: 21%; // leaves a ~4.5rem gutter next to the 40rem text column
+  .post {
+    position: relative;
+  }
 
-    img {
-      box-shadow: none; // plain round picture, no z-depth shadow
-    }
+  .site-profile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 21%;
+    float: none;
+    margin: 0;
+  }
 
-    &.float-right {
-      margin-top: -6rem;
-      margin-left: 0;
-    }
-
-    &.float-right + .clearfix {
-      max-width: 40rem; // the same measure as every other page
-    }
+  .profile.float-right + .clearfix {
+    max-width: 40rem; // the same measure as every other page
   }
 }
 
