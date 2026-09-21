@@ -1,5 +1,7 @@
 /*******************************************************************************
- * Site-local design: AFP palette as theme tokens, ClockWerQ type system
+ * Site-local design: Google Material palette as used by the Cloud Console
+ * (blue 600 / blue 300 accent, grey 900 ink, grey 300 hairlines; dark ground
+ * grey 900 with elevated surfaces #303134), the ClockWerQ type system
  * (Source Sans 3 Light/Semibold, Source Code Pro) and the ClockWerQ web type
  * scale (display 2.5 / h1 1.75 / h2 1.4 / h3 1.125 / body 1 rem).
  *
@@ -8,56 +10,64 @@
  * shadowed _variables.scss never reaches them.
  ******************************************************************************/
 
-// AFP palette (figstyle/palette.py)
-$afp-blue: #2e2cb8; // C0
-$afp-red: #db002b; // C1
-$afp-green: #1f8a70; // C2
-$afp-orange: #fd7400; // C3
-$afp-blueberry: #1c809e; // C4
-$afp-gold: #fabd1e; // C7
-$afp-gray-ink: #656565;
-$afp-gray: #919191;
-$afp-lightgray: #d0d0d0;
-$afp-dark: #222222;
-$afp-blue-lifted: #8280d4; // blue mixed 60 % toward white — dark-mode accent
+// Material palette
+$md-blue-600: #1a73e8;
+$md-blue-300: #8ab4f8;
+$md-red-600: #d93025;
+$md-red-300: #f28b82;
+$md-green-600: #1e8e3e;
+$md-green-300: #81c995;
+$md-yellow-600: #f9ab00;
+$md-yellow-300: #fdd663;
+$md-grey-900: #202124;
+$md-grey-800: #3c4043;
+$md-grey-700: #5f6368;
+$md-grey-500: #9aa0a6;
+$md-grey-300: #dadce0;
+$md-grey-200: #e8eaed;
+$md-grey-100: #f1f3f4;
+$md-surface-dark: #303134; // elevated surface on the dark ground
 
 // ---------- colour tokens ----------
 
 :root {
   --global-bg-color: #ffffff;
-  --global-text-color: #{$afp-dark};
-  --global-text-color-light: #{$afp-gray-ink};
-  --global-theme-color: #{$afp-blue};
-  --global-hover-color: #{$afp-blue};
+  --global-text-color: #{$md-grey-900};
+  --global-text-color-light: #{$md-grey-700};
+  --global-theme-color: #{$md-blue-600};
+  --global-hover-color: #{$md-blue-600};
   --global-hover-text-color: #ffffff;
-  --global-code-bg-color: rgba(46, 44, 184, 0.05);
-  --global-divider-color: #{$afp-lightgray};
+  --global-code-bg-color: #{$md-grey-100};
+  --global-divider-color: #{$md-grey-300};
   --global-card-bg-color: #ffffff;
-  --global-highlight-color: #{$afp-red};
-  --global-footer-bg-color: #{$afp-dark};
-  --global-footer-text-color: #{$afp-lightgray};
+  --global-highlight-color: #{$md-red-600};
+  --global-footer-bg-color: #{$md-grey-900};
+  --global-footer-text-color: #{$md-grey-300};
   --global-footer-link-color: #ffffff;
-  --global-back-to-top-bg-color: rgba(34, 34, 34, 0.4);
-  --global-tip-block: #{$afp-green};
-  --global-warning-block: #{$afp-gold};
-  --global-danger-block: #{$afp-red};
+  --global-back-to-top-bg-color: rgba(32, 33, 36, 0.4);
+  --global-tip-block: #{$md-green-600};
+  --global-warning-block: #{$md-yellow-600};
+  --global-danger-block: #{$md-red-600};
 }
 
 html[data-theme="dark"] {
-  --global-bg-color: #1a1a1c;
-  --global-text-color: #e6e6e6;
-  --global-text-color-light: #a3a3a3;
-  --global-theme-color: #{$afp-blue-lifted};
-  --global-hover-color: #{$afp-blue-lifted};
-  --global-hover-text-color: #ffffff;
-  --global-code-bg-color: #26262a;
-  --global-divider-color: #333336;
-  --global-card-bg-color: #{$afp-dark};
-  --global-highlight-color: #ff4d6d;
-  --global-footer-bg-color: #{$afp-lightgray};
-  --global-footer-text-color: #{$afp-dark};
-  --global-footer-link-color: #{$afp-dark};
-  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.5);
+  --global-bg-color: #{$md-grey-900};
+  --global-text-color: #{$md-grey-200};
+  --global-text-color-light: #{$md-grey-500};
+  --global-theme-color: #{$md-blue-300};
+  --global-hover-color: #{$md-blue-300};
+  --global-hover-text-color: #{$md-grey-900};
+  --global-code-bg-color: #{$md-surface-dark};
+  --global-divider-color: #{$md-grey-800};
+  --global-card-bg-color: #{$md-surface-dark};
+  --global-highlight-color: #{$md-red-300};
+  --global-footer-bg-color: #{$md-grey-100};
+  --global-footer-text-color: #{$md-grey-900};
+  --global-footer-link-color: #{$md-grey-900};
+  --global-back-to-top-bg-color: rgba(232, 234, 237, 0.5);
+  --global-tip-block: #{$md-green-300};
+  --global-warning-block: #{$md-yellow-300};
+  --global-danger-block: #{$md-red-300};
 }
 
 $font-sans:
@@ -126,6 +136,13 @@ article p,
   text-align: justify;
   hyphens: auto;
   -webkit-hyphens: auto;
+}
+
+// narrow measures (cards) stay ragged right
+.card p,
+.card .card-text {
+  text-align: left;
+  hyphens: manual;
 }
 
 // ---------- scale ----------

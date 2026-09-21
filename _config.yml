@@ -8,7 +8,7 @@ middle_name:
 last_name: Friedrich
 contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Alexander Friedrich — physicist. Atom interferometry, optical atomic clocks, frequency metrology, quantum sensing,
+  Alexander Friedrich, physicist. Atom interferometry, optical atomic clocks, frequency metrology, quantum sensing,
   quantum field theory in curved and non-inertial spacetimes.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.

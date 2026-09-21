@@ -24,8 +24,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi. I'm a physicist. My work sits where precision measurement meets fundamental physics: light-pulse atom interferometers, optical atomic clocks, frequency metrology and quantum sensing on one side — and on the other, the question of what these instruments can actually tell us about gravity. Equivalence-principle tests, relativistic effects in matter-wave interferometers, quantum field theory in curved and non-inertial spacetimes: that corner.
+I am a physicist. My work sits where precision measurement meets fundamental physics. On the one side: light-pulse atom interferometers, optical atomic clocks, frequency metrology and quantum sensing, that is, instruments that measure time, frequency and acceleration to a precision little else can match. On the other side: the question of what such instruments can tell us about gravity, in particular through tests of the equivalence principle, relativistic effects in matter-wave interferometers and quantum field theory in curved and non-inertial spacetimes.
 
-The short version: I like very good clocks and rulers, and I like asking what they can measure that nothing else can.
+In short, I like very good clocks and rulers, and I like to ask what they can measure that nothing else can.
 
-Around here you'll find my [publications](/publications/), a few [projects](/projects/), short technical [notes](/notes/), and the occasional [blog](/blog/) post.
+In the following you will find my [publications](/publications/), a few [projects](/projects/), short technical [notes](/notes/) and, on occasion, a [blog](/blog/) post.
