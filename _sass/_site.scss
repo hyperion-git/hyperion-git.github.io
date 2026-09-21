@@ -11,10 +11,6 @@
  ******************************************************************************/
 
 // Material palette
-$md-blue-600: #1a73e8;
-$md-blue-300: #8ab4f8;
-$md-blue-100: #d2e3fc;
-$md-blue-50: #e8f0fe;
 $md-red-600: #d93025;
 $md-red-300: #f28b82;
 $md-green-600: #1e8e3e;
@@ -29,6 +25,11 @@ $md-grey-300: #dadce0;
 $md-grey-200: #e8eaed;
 $md-grey-100: #f1f3f4;
 $md-surface-dark: #303134; // elevated surface on the dark ground
+// accent: AFP blue (figstyle palette C0) on light; lifted 60 % toward white on the dark ground
+$afp-blue: #2e2cb8;
+$afp-blue-lifted: #8280d4;
+$afp-blue-tint: #eaeaf8; // 10 % blue on white
+$afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 
 // ---------- colour tokens ----------
 
@@ -36,8 +37,8 @@ $md-surface-dark: #303134; // elevated surface on the dark ground
   --global-bg-color: #ffffff;
   --global-text-color: #{$md-grey-900};
   --global-text-color-light: #{$md-grey-700};
-  --global-theme-color: #{$md-blue-600};
-  --global-hover-color: #{$md-blue-600};
+  --global-theme-color: #{$afp-blue};
+  --global-hover-color: #{$afp-blue};
   --global-hover-text-color: #ffffff;
   --global-code-bg-color: #{$md-grey-100};
   --global-divider-color: #{$md-grey-300};
@@ -50,17 +51,17 @@ $md-surface-dark: #303134; // elevated surface on the dark ground
   --global-tip-block: #{$md-green-600};
   --global-warning-block: #{$md-yellow-600};
   --global-danger-block: #{$md-red-600};
-  --site-card-tint: #{$md-blue-50};
-  --site-card-tint-hover: #{$md-blue-100};
-  --site-rule-color: #{$md-blue-600};
+  --site-card-tint: #{$afp-blue-tint};
+  --site-card-tint-hover: #{$afp-blue-tint-hover};
+  --site-rule-color: #{$afp-blue};
 }
 
 html[data-theme="dark"] {
   --global-bg-color: #{$md-grey-900};
   --global-text-color: #{$md-grey-200};
   --global-text-color-light: #{$md-grey-500};
-  --global-theme-color: #{$md-blue-300};
-  --global-hover-color: #{$md-blue-300};
+  --global-theme-color: #{$afp-blue-lifted};
+  --global-hover-color: #{$afp-blue-lifted};
   --global-hover-text-color: #{$md-grey-900};
   --global-code-bg-color: #{$md-surface-dark};
   --global-divider-color: #{$md-grey-800};
@@ -73,9 +74,9 @@ html[data-theme="dark"] {
   --global-tip-block: #{$md-green-300};
   --global-warning-block: #{$md-yellow-300};
   --global-danger-block: #{$md-red-300};
-  --site-card-tint: rgba(138, 180, 248, 0.16);
-  --site-card-tint-hover: rgba(138, 180, 248, 0.26);
-  --site-rule-color: #{$md-blue-300};
+  --site-card-tint: rgba(130, 128, 212, 0.16);
+  --site-card-tint-hover: rgba(130, 128, 212, 0.26);
+  --site-rule-color: #{$afp-blue-lifted};
 }
 
 $font-sans:
@@ -315,7 +316,8 @@ small,
 .note-body,
 .post-content,
 .entry-list,
-.publications {
+.publications,
+.projects {
   max-width: 40rem;
 }
 
@@ -404,6 +406,17 @@ small,
   ol.bibliography li {
     margin-bottom: 1.25rem;
 
+    // badge column wide enough for "PRX Quantum" inside the reading measure
+    .abbr {
+      flex: 0 0 24%;
+      max-width: 24%;
+    }
+
+    .abbr + div {
+      flex: 0 0 76%;
+      max-width: 76%;
+    }
+
     .abbr abbr.badge {
       font-family: $font-sans;
       font-weight: 600;
@@ -454,12 +467,17 @@ small,
 // ---------- cards / projects ----------
 
 .projects {
+  // category label below its accent rule, like the publication years
   h2.category {
     font-size: 1.125rem;
     font-weight: 300;
     letter-spacing: 0.02em;
     text-transform: capitalize;
     color: var(--global-text-color-light);
+    border-bottom: none;
+    border-top: 1px solid var(--site-rule-color);
+    padding-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   // first category sits at the same distance from the header as the bio does on the landing page
@@ -492,12 +510,18 @@ small,
       transform: translateY(-2px);
     }
 
+    .card-body {
+      padding: 1rem;
+    }
+
     .card-title {
-      font-size: 1.25rem;
+      font-size: 1.0625rem;
+      margin-bottom: 0.4rem;
     }
 
     .card-text {
-      font-size: 0.9375rem;
+      font-size: 0.875rem;
+      line-height: 1.4;
     }
   }
 }
@@ -525,6 +549,20 @@ small,
 }
 
 // ---------- social icons: half the theme size, accent colour ----------
+
+// on the landing page the icons sit under the portrait
+.profile .profile-social {
+  text-align: center;
+  margin-top: 0.75rem;
+
+  .contact-icons {
+    font-size: 1.25rem;
+
+    a {
+      margin: 0 0.3rem;
+    }
+  }
+}
 
 .social .contact-icons {
   font-size: 2rem;
