@@ -189,11 +189,16 @@ small,
   margin: 0 0 1.75rem;
 
   .post-title {
-    font-size: 2.5rem;
-    font-weight: 300;
+    font-size: 2.25rem;
+    font-weight: 600;
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin: 0 0 0.25rem;
+
+    // the name keeps its bold-first-name / light-surname pattern
+    &:has(.font-weight-bold) {
+      font-weight: 300;
+    }
 
     .font-weight-bold {
       font-weight: 600;
@@ -349,7 +354,7 @@ small,
     text-align: right;
     border-top: 1px solid var(--site-rule-color);
     padding-top: 1rem;
-    margin: 0 0 0.75rem;
+    margin: 0 0 1.5rem;
   }
 
   .entry + .entry .entry-date {
