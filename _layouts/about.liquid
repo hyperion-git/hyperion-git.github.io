@@ -6,6 +6,7 @@ layout: default
   instead of at the end of the page. Everything else is the gem's layout as shipped.
 {% endcomment %}
 <div class="post">
+  {% unless page.no_profile %}{% include site_profile.liquid %}{% endunless %}
   <header class="post-header">
     <h1 class="post-title">
       {% if site.title == 'blank' %}
@@ -19,8 +20,6 @@ layout: default
   </header>
 
   <article>
-    {% include site_profile.liquid %}
-
     <div class="clearfix">{{ content }}</div>
 
     <!-- News -->

@@ -1,10 +1,16 @@
 {% comment %}
   Portrait with the social icons, shown top-right on every page.
-  The image name comes from `profile_image` in _config.yml (a file in assets/img/).
+  The image is `profile_picture` from the page front matter when set (a file in assets/img/),
+  otherwise `profile_image` from _config.yml.
 {% endcomment %}
-{% if site.profile_image %}
-  {% assign profile_image_path = site.profile_image | prepend: 'assets/img/' %}
-  {% assign profile_alt = site.first_name | append: ' ' | append: site.last_name %}
+{% assign profile_picture = page.profile_picture | default: site.profile_image %}
+{% if profile_picture %}
+  {% assign profile_image_path = profile_picture | prepend: 'assets/img/' %}
+  {% if page.profile_picture -%}
+    {%- assign profile_alt = page.title -%}
+  {%- else -%}
+    {%- assign profile_alt = site.first_name | append: ' ' | append: site.last_name -%}
+  {%- endif %}
   {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.21 }}px, (min-width: 576px) 21vw, 45vw{% endcapture %}
   <div class="profile float-right site-profile">
     {% include figure.liquid loading="eager" path=profile_image_path class="img-fluid rounded-circle" sizes=sizes alt=profile_alt cache_bust=true %}

@@ -2,6 +2,7 @@
 layout: page
 title: Notes
 permalink: /notes/
+profile_picture: placeholder.svg # round placeholder until a page picture exists
 description: "Short technical notes: derivations, conventions, and things worth writing down once."
 nav: true
 nav_order: 3

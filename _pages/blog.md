@@ -2,6 +2,7 @@
 layout: page
 title: Blog
 permalink: /blog/
+profile_picture: placeholder.svg # round placeholder until a page picture exists
 description: Occasional longer pieces. Notes are for the short ones.
 nav: true
 nav_order: 4

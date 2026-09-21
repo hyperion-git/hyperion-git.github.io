@@ -647,8 +647,8 @@ footer.sticky-bottom {
     margin: 0;
   }
 
-  .profile.float-right + .clearfix {
-    max-width: 40rem; // the same measure as every other page
+  .post > article > .clearfix {
+    max-width: 40rem; // the landing-page bio: the same measure as every other page
   }
 }
 

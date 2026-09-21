@@ -13,13 +13,13 @@ layout: default
 {% endif %}
 
 <div class="post">
+  {% unless page.no_profile %}{% include site_profile.liquid %}{% endunless %}
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-description">{{ page.description }}</p>
   </header>
 
   <article>
-    {% unless page.no_profile %}{% include site_profile.liquid %}{% endunless %}
     {{ content }}
   </article>
 
