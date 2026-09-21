@@ -25,9 +25,9 @@ $md-grey-300: #dadce0;
 $md-grey-200: #e8eaed;
 $md-grey-100: #f1f3f4;
 $md-surface-dark: #303134; // elevated surface on the dark ground
-// accent: AFP blue (figstyle palette C0) on light; Material teal 300 on the dark ground (owner's choice, 2026-09-21)
+// accent: AFP blue (figstyle palette C0) on light; Material blue 300 on the dark ground (owner's choice, 2026-09-21)
 $afp-blue: #2e2cb8;
-$md-teal-300: #4db6ac;
+$md-blue-300: #64b5f6;
 $afp-blue-tint: #eaeaf8; // 10 % blue on white
 $afp-blue-tint-hover: #dfdff4; // 16 % blue on white
 
@@ -60,8 +60,8 @@ html[data-theme="dark"] {
   --global-bg-color: #{$md-grey-900};
   --global-text-color: #{$md-grey-200};
   --global-text-color-light: #{$md-grey-500};
-  --global-theme-color: #{$md-teal-300};
-  --global-hover-color: #{$md-teal-300};
+  --global-theme-color: #{$md-blue-300};
+  --global-hover-color: #{$md-blue-300};
   --global-hover-text-color: #{$md-grey-900};
   --global-code-bg-color: #{$md-surface-dark};
   --global-divider-color: #{$md-grey-800};
@@ -74,9 +74,9 @@ html[data-theme="dark"] {
   --global-tip-block: #{$md-green-300};
   --global-warning-block: #{$md-yellow-300};
   --global-danger-block: #{$md-red-300};
-  --site-card-tint: rgba(77, 182, 172, 0.16);
-  --site-card-tint-hover: rgba(77, 182, 172, 0.26);
-  --site-rule-color: #{$md-teal-300};
+  --site-card-tint: rgba(100, 181, 246, 0.16);
+  --site-card-tint-hover: rgba(100, 181, 246, 0.26);
+  --site-rule-color: #{$md-blue-300};
 }
 
 $font-sans:
