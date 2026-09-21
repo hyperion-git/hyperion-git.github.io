@@ -285,8 +285,18 @@ small,
       font-size: 0.75rem;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.3rem 0.65rem;
       border-radius: 0.25rem;
+      border: none;
+      background-color: var(--global-code-bg-color);
+      color: var(--global-text-color);
+
+      &:hover,
+      &:focus {
+        background-color: var(--global-divider-color);
+        color: var(--global-text-color);
+        text-decoration: none;
+      }
     }
   }
 }
@@ -325,7 +335,8 @@ small,
   }
 }
 
-// ---------- profile picture: 75 % of the theme default width, raised to the name line ----------
+// ---------- profile picture: 75 % of the theme default width, raised to the name line;
+// the bio column stops at the picture (equal line widths) with a 4.5 rem gutter ----------
 
 @media (min-width: 576px) {
   .profile {
@@ -333,17 +344,29 @@ small,
 
     &.float-right {
       margin-top: -6rem;
-      margin-left: 1.5rem;
+      margin-left: 0;
+    }
+
+    &.float-right + .clearfix {
+      margin-right: calc(22.5% + 4.5rem);
     }
   }
 }
 
-// ---------- social icons ----------
+// ---------- social icons: half the theme size, accent colour ----------
 
-.contact-icons {
-  font-size: 2.25rem;
+.social .contact-icons {
+  font-size: 2rem;
 
   a {
-    margin: 0 0.25rem;
+    margin: 0 0.35rem;
+
+    i::before {
+      color: var(--global-theme-color);
+    }
+
+    &:hover i::before {
+      color: var(--global-text-color);
+    }
   }
 }
