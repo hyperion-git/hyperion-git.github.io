@@ -3,7 +3,7 @@ layout: page
 title: Blog
 permalink: /blog/
 profile_picture: blog.jpg # page picture in the round slot top-right (file in assets/img/)
-description: Occasional longer pieces. Notes are for the short ones.
+description: Occasional longer pieces. Notes are for the technical or the short ones.
 nav: true
 nav_order: 4
 pagination:
