@@ -85,6 +85,7 @@ $font-sans:
   "Segoe UI",
   sans-serif;
 $font-mono: "Source Code Pro", ui-monospace, "SFMono-Regular", Menlo, monospace;
+$font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
 
 // ---------- families and weights ----------
 
@@ -182,15 +183,17 @@ small,
   letter-spacing: 0.01em;
 }
 
-// Page headers: the name on the landing page is the only "display" size on the site.
+// Page headers: every page title has the size and position of the name on the landing page,
+// and the same pattern: a bold element (the first name, or an accent icon) followed by Light text.
 .post-header {
-  margin-bottom: 1.75rem;
+  margin: 0 0 1.75rem;
 
   .post-title {
-    font-size: 1.75rem;
+    font-size: 2.5rem;
     font-weight: 300;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.25rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.25rem;
 
     .font-weight-bold {
       font-weight: 600;
@@ -203,12 +206,6 @@ small,
     color: var(--global-text-color-light);
     margin-bottom: 0;
   }
-}
-
-.about .post-header .post-title,
-.post-header .post-title:has(.font-weight-bold) {
-  font-size: 2.5rem;
-  letter-spacing: -0.02em;
 }
 
 .header-bar h1 {
@@ -224,8 +221,27 @@ small,
 // Section headings the gem hard-codes in lowercase ("selected publications", "latest posts")
 .post > article > h2 {
   text-transform: capitalize;
+  font-size: 1.75rem;
+  font-weight: 300;
   margin-top: 3rem;
   margin-bottom: 1.25rem;
+
+  > a::before {
+    font-family: "Font Awesome 7 Free", "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 0.72em;
+    color: var(--global-theme-color);
+    margin-right: 0.3em;
+    vertical-align: 0.08em;
+  }
+
+  > a[href$="/publications/"]::before {
+    content: "\f02d"; // fa-book
+  }
+
+  > a[href$="/blog/"]::before {
+    content: "\f56b"; // fa-feather-pointed
+  }
 }
 
 // ---------- separation rules in the accent colour ----------
@@ -264,6 +280,112 @@ small,
   }
 }
 
+// ---------- year groups on notes and blog: the publications page's year rule ----------
+
+.grouped-list h2.group-heading {
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--global-text-color-light);
+  text-align: right;
+  border-top: 1px solid var(--site-rule-color);
+  padding-top: 1rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+
+  & + .post-list,
+  & + p {
+    margin-top: 0;
+  }
+}
+
+.grouped-list h2.group-heading + h2.group-heading,
+.grouped-list .post-list + h2.group-heading {
+  margin-top: 2rem;
+}
+
+// ---------- notes and blog: serif running prose (ClockWerQ long-form pairing), headings stay sans ----------
+
+.serif-prose,
+.serif-prose p,
+.serif-prose li,
+.serif-prose blockquote,
+.post-content p,
+.post-content li,
+.post-content blockquote {
+  font-family: $font-serif;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+// reading measure: about 70 characters of Source Serif at 17 px
+.note-body,
+.post-content,
+.entry-list {
+  max-width: 40rem;
+}
+
+.note-body p,
+.post-content p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+.note-body h2,
+.note-body h3,
+.post-content h2,
+.post-content h3 {
+  font-family: $font-sans;
+  margin-top: 2rem;
+}
+
+// ---------- entry lists (notes, blog): each entry opens with an accent rule carrying its date ----------
+
+.entry-list {
+  .entry-date {
+    font-family: $font-sans;
+    font-size: 1.125rem;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    color: var(--global-text-color-light);
+    text-align: right;
+    border-top: 1px solid var(--site-rule-color);
+    padding-top: 1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .entry + .entry .entry-date {
+    margin-top: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .entry-title {
+    color: var(--global-text-color);
+
+    &:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+  }
+
+  p.serif-prose {
+    margin-bottom: 0.5rem;
+  }
+
+  .entry-meta {
+    font-family: $font-mono;
+    font-size: 0.8125rem;
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+}
+
 // ---------- publications ----------
 
 .publications {
@@ -273,7 +395,7 @@ small,
 
   h2.bibliography {
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 0.04em;
     color: var(--global-text-color-light);
   }
@@ -333,10 +455,15 @@ small,
 .projects {
   h2.category {
     font-size: 1.125rem;
-    font-weight: 600;
+    font-weight: 300;
     letter-spacing: 0.02em;
     text-transform: capitalize;
     color: var(--global-text-color-light);
+  }
+
+  // first category sits at the same distance from the header as the bio does on the landing page
+  > a:first-child h2.category {
+    margin-top: 0;
   }
 
   // tinted cards: Material "selected" surfaces (blue 50 on white, 16 % blue 300 on the dark ground)
@@ -380,6 +507,10 @@ small,
 @media (min-width: 576px) {
   .profile {
     width: 22.5%;
+
+    img {
+      box-shadow: none; // plain round picture, no z-depth shadow
+    }
 
     &.float-right {
       margin-top: -6rem;

@@ -296,7 +296,7 @@ defaults:
       path: ""
       type: notes
     values:
-      layout: page
+      layout: note
 
 sass:
   style: compressed
