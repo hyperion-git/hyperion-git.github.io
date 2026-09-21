@@ -363,10 +363,22 @@ footer.sticky-bottom {
 
 .note-body,
 .post-content,
+.page-body,
 .entry-list,
 .publications,
 .projects {
   max-width: var(--site-measure);
+}
+
+// the page layout's article already carries the measure; a measured block inside it would take
+// 79 % of the narrowed column again, so it fills the article instead
+.page-body {
+  .note-body,
+  .entry-list,
+  .publications,
+  .projects {
+    max-width: none;
+  }
 }
 
 .note-body p,
@@ -670,7 +682,6 @@ footer.sticky-bottom {
     width: 50%;
     margin: 0 auto 1.5rem;
   }
-
 }
 
 // ---------- social icons: half the theme size, accent colour ----------
