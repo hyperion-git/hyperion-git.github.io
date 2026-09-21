@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: Physicist, PhD · Ulm, Germany
+subtitle: Physicist, PhD
 
 profile: true # the portrait itself is site-wide: `profile_image` in _config.yml, rendered by _includes/site_profile.liquid
 

@@ -672,6 +672,17 @@ footer.sticky-bottom {
   }
 }
 
+// location caption under the icons
+.profile .profile-location {
+  text-align: center;
+  font-family: $font-sans;
+  font-weight: 300;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: var(--global-text-color-light);
+  margin-top: 0.4rem;
+}
+
 .social .contact-icons {
   font-size: 2rem;
 

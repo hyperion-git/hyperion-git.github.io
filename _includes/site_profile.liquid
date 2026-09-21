@@ -11,5 +11,8 @@
     <div class="social profile-social">
       <div class="contact-icons">{% social_links %}</div>
     </div>
+    {% if site.profile_location %}
+      <div class="profile-location">{{ site.profile_location }}</div>
+    {% endif %}
   </div>
 {% endif %}
