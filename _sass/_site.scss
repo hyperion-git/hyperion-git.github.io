@@ -213,6 +213,13 @@ small,
   font-weight: 300;
 }
 
+// Section headings the gem hard-codes in lowercase ("selected publications", "latest posts")
+.post > article > h2 {
+  text-transform: capitalize;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+}
+
 // ---------- navigation ----------
 
 .navbar {
@@ -230,6 +237,7 @@ small,
     font-size: 0.9375rem;
     font-weight: 300;
     letter-spacing: 0.02em;
+    text-transform: lowercase; // nav stays lowercase; page titles themselves are Title Case
   }
 
   .navbar-nav .nav-item.active > .nav-link {
@@ -307,8 +315,8 @@ small,
   h2.category {
     font-size: 1.125rem;
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
     color: var(--global-text-color-light);
   }
 

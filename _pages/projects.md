@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description: Software and open research artefacts I maintain or contributed to.
 nav: true

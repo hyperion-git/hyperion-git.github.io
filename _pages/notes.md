@@ -1,8 +1,8 @@
 ---
 layout: page
-title: notes
+title: Notes
 permalink: /notes/
-description: Short technical notes — derivations, conventions, and things worth writing down once.
+description: "Short technical notes: derivations, conventions, and things worth writing down once."
 nav: true
 nav_order: 3
 ---

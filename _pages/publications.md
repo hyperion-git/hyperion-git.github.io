@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: publications
+title: Publications
 description: Journal articles and preprints, in reverse chronological order. Bold marks my name; badges show citation metrics where available.
 nav: true
 nav_order: 1
