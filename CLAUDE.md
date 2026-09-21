@@ -2,6 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## This site (overrides the al-folio starter docs below)
+
+This is Alexander Friedrich's personal **user site** built from al-folio v1.x, deployed at `https://hyperion-git.github.io/` — not the al-folio demo.
+Where `AGENTS.md` or `docs/` say otherwise, these facts win:
+
+- `baseurl` is **empty** (user site at the domain root). Never set it to `/al-folio`; verify with `curl -fsS http://127.0.0.1:8080/` and build with a plain `bundle exec jekyll build`.
+- Content lives in `_pages`, `_bibliography/papers.bib`, `_projects`, `_notes` (custom collection, listed by `_pages/notes.md`), `_posts`, `_data/socials.yml`.
+- **No CV on the site** (owner's decision): `al_folio.features.cv.enabled: false`, no `_pages/cv.md`, no `_data/cv.yml`, no `resume.json`, no CV PDF. Do not add personal data beyond professional affiliation — no address, e-mail (unless `protect_email: true` and the owner asks), dates of birth or school history.
+- `_bibliography/papers.bib` was built from ORCID 0000-0003-0588-1989 + the owner's JabRef library + Crossref/arXiv. Never hand-type a bib entry; every entry carries a DOI or arXiv id retrieved from a source.
+- Only `.github/workflows/deploy.yml` is kept; the al-folio maintainer workflows were removed on purpose. The `test/` integration scripts and visual baselines are upstream tooling and are not run here.
+- Remotes: `origin` = hyperion-git/hyperion-git.github.io (commit identity `hyperion-git <hyperion-git@users.noreply.github.com>`, no Signed-off-by), `upstream` = alshedivat/al-folio (merge release tags to upgrade).
+
 @AGENTS.md
 
 `AGENTS.md` (imported above) is the **authoritative** agent entry point: change routing, the stop sign for gem-owned paths, the three silent failure modes, and the validated command set. Keep it short and ecosystem-neutral. Cross-repo architecture — the wrapper/tag/gem delegation table, feature gating, the v1 config contract, local overrides — lives in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md); area-to-gem ownership lives in [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md).
