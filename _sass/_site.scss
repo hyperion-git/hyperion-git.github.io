@@ -188,7 +188,6 @@ small,
 // and the same pattern: a bold element (the first name, or an accent icon) followed by Light text.
 .post-header {
   margin: 0 0 1.75rem;
-  max-width: var(--site-measure); // same measure as the content, so the portrait never overlaps the description
 
   .post-title {
     font-size: 2.25rem;
@@ -361,24 +360,12 @@ footer.sticky-bottom {
   }
 }
 
-.note-body,
-.post-content,
-.page-body,
-.entry-list,
-.publications,
-.projects {
+// applied once per layout: the header and the content column of about.liquid, page.liquid and
+// note.liquid carry .site-column; the gem's post layout is reached through its own .post-content
+.post-header,
+.site-column,
+.post-content {
   max-width: var(--site-measure);
-}
-
-// the page layout's article already carries the measure; a measured block inside it would take
-// 79 % of the narrowed column again, so it fills the article instead
-.page-body {
-  .note-body,
-  .entry-list,
-  .publications,
-  .projects {
-    max-width: none;
-  }
 }
 
 .note-body p,
@@ -668,10 +655,6 @@ footer.sticky-bottom {
     width: 21%;
     float: none;
     margin: 0;
-  }
-
-  .post > article > .clearfix {
-    max-width: var(--site-measure); // the landing-page bio: the same measure as every other page
   }
 }
 
