@@ -1,7 +1,7 @@
 {% comment %}
-  Picture top-right on every page: `profile_picture` from the page front matter when set
-  (a file in assets/img/), otherwise the portrait `profile_image` from _config.yml.
-  The social icons and the location belong to the portrait and appear on the about page only.
+  Picture top-right on every page, with the social icons beneath it: `profile_picture` from
+  the page front matter when set (a file in assets/img/), otherwise the portrait `profile_image`
+  from _config.yml. The location belongs to the portrait and appears on the about page only.
 {% endcomment %}
 {% assign profile_picture = page.profile_picture | default: site.profile_image %}
 {% if profile_picture %}
@@ -14,13 +14,11 @@
   {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.21 }}px, (min-width: 576px) 21vw, 45vw{% endcapture %}
   <div class="profile float-right site-profile">
     {% include figure.liquid loading="eager" path=profile_image_path class="img-fluid rounded-circle" sizes=sizes alt=profile_alt cache_bust=true %}
-    {% if page.layout == 'about' %}
-      <div class="social profile-social">
-        <div class="contact-icons">{% social_links %}</div>
-      </div>
-      {% if site.profile_location %}
-        <div class="profile-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{ site.profile_location }}</div>
-      {% endif %}
+    <div class="social profile-social">
+      <div class="contact-icons">{% social_links %}</div>
+    </div>
+    {% if page.layout == 'about' and site.profile_location %}
+      <div class="profile-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> {{ site.profile_location }}</div>
     {% endif %}
   </div>
 {% endif %}
