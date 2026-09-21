@@ -3,9 +3,7 @@
   accent-coloured dot instead of full stops. Otherwise the gem's include as shipped (v1.0.15).
 {% endcomment %}
 {% capture footer_contents %}
-  <span class="footer-item">{{ site.time | date: '%Y' }}</span>
   {% if site.impressum_path %}
-    <span class="footer-sep" aria-hidden="true">&middot;</span>
     <span class="footer-item"><a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a></span>
   {% endif %}
   {% if site.footer_text and site.footer_text != blank %}
@@ -16,6 +14,8 @@
     <span class="footer-sep" aria-hidden="true">&middot;</span>
     <span class="footer-item">Last updated {{ 'now' | date: '%B %-d, %Y' }}</span>
   {% endif %}
+  <span class="footer-sep" aria-hidden="true">&middot;</span>
+  <span class="footer-item">{{ site.time | date: '%Y' }}</span>
 {% endcapture %}
 
 {% if site.footer_fixed %}
