@@ -370,6 +370,35 @@ footer.sticky-bottom {
   margin-top: 2rem;
 }
 
+// tables: booktabs — top and bottom rule in the accent, header rule in the text colour, no vertical rules
+.note-body table,
+.post-content table {
+  border-collapse: collapse;
+  width: auto;
+  margin: 1.5rem auto;
+  border-top: 1.5px solid var(--global-theme-color);
+  border-bottom: 1.5px solid var(--global-theme-color);
+  font-size: 0.9375rem;
+
+  th,
+  td {
+    border: none;
+    padding: 0.4rem 1rem;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  thead th {
+    font-family: $font-sans;
+    font-weight: 600;
+    border-bottom: 1px solid var(--global-text-color);
+  }
+
+  tbody tr:first-child td {
+    padding-top: 0.6rem;
+  }
+}
+
 // section headings (h2) in the accent; subsections and below in the text colour
 .note-body h2,
 .post-content h2 {
