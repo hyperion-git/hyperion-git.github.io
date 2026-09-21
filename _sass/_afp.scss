@@ -116,6 +116,18 @@ samp,
   letter-spacing: 0.02em;
 }
 
+// ---------- running prose: justified (Blocksatz), hyphenated to avoid rivers ----------
+
+article p,
+.post-content p,
+.post-description,
+.post p,
+.note p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
 // ---------- scale ----------
 
 h1,
