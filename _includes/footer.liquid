@@ -4,7 +4,7 @@
 {% endcomment %}
 {% capture footer_contents %}
   {% if site.impressum_path %}
-    <span class="footer-item"><a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a></span>
+    <span class="footer-item"><a href="{{ site.impressum_path | relative_url }}">Impressum</a></span>
   {% endif %}
   {% if site.footer_text and site.footer_text != blank %}
     <span class="footer-sep" aria-hidden="true">&middot;</span>
