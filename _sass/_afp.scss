@@ -1,0 +1,307 @@
+/*******************************************************************************
+ * Site-local design: AFP palette as theme tokens, ClockWerQ type system
+ * (Source Sans 3 Light/Semibold, Source Code Pro) and the ClockWerQ web type
+ * scale (display 2.5 / h1 1.75 / h2 1.4 / h3 1.125 / body 1 rem).
+ *
+ * Tokens are set as CSS custom properties here (loaded after the gem partials)
+ * because gem partials resolve `@use "variables"` to the gem's own file, so a
+ * shadowed _variables.scss never reaches them.
+ ******************************************************************************/
+
+// AFP palette (figstyle/palette.py)
+$afp-blue: #2e2cb8; // C0
+$afp-red: #db002b; // C1
+$afp-green: #1f8a70; // C2
+$afp-orange: #fd7400; // C3
+$afp-blueberry: #1c809e; // C4
+$afp-gold: #fabd1e; // C7
+$afp-gray-ink: #656565;
+$afp-gray: #919191;
+$afp-lightgray: #d0d0d0;
+$afp-dark: #222222;
+$afp-blue-lifted: #8280d4; // blue mixed 60 % toward white — dark-mode accent
+
+// ---------- colour tokens ----------
+
+:root {
+  --global-bg-color: #ffffff;
+  --global-text-color: #{$afp-dark};
+  --global-text-color-light: #{$afp-gray-ink};
+  --global-theme-color: #{$afp-blue};
+  --global-hover-color: #{$afp-blue};
+  --global-hover-text-color: #ffffff;
+  --global-code-bg-color: rgba(46, 44, 184, 0.05);
+  --global-divider-color: #{$afp-lightgray};
+  --global-card-bg-color: #ffffff;
+  --global-highlight-color: #{$afp-red};
+  --global-footer-bg-color: #{$afp-dark};
+  --global-footer-text-color: #{$afp-lightgray};
+  --global-footer-link-color: #ffffff;
+  --global-back-to-top-bg-color: rgba(34, 34, 34, 0.4);
+  --global-tip-block: #{$afp-green};
+  --global-warning-block: #{$afp-gold};
+  --global-danger-block: #{$afp-red};
+}
+
+html[data-theme="dark"] {
+  --global-bg-color: #1a1a1c;
+  --global-text-color: #e6e6e6;
+  --global-text-color-light: #a3a3a3;
+  --global-theme-color: #{$afp-blue-lifted};
+  --global-hover-color: #{$afp-blue-lifted};
+  --global-hover-text-color: #ffffff;
+  --global-code-bg-color: #26262a;
+  --global-divider-color: #333336;
+  --global-card-bg-color: #{$afp-dark};
+  --global-highlight-color: #ff4d6d;
+  --global-footer-bg-color: #{$afp-lightgray};
+  --global-footer-text-color: #{$afp-dark};
+  --global-footer-link-color: #{$afp-dark};
+  --global-back-to-top-bg-color: rgba(255, 255, 255, 0.5);
+}
+
+$font-sans:
+  "Source Sans 3",
+  system-ui,
+  -apple-system,
+  "Segoe UI",
+  sans-serif;
+$font-mono: "Source Code Pro", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+// ---------- families and weights ----------
+
+html body {
+  font-family: $font-sans;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.navbar-brand,
+.nav-link,
+.post-title,
+.card-title,
+.category,
+th,
+strong,
+b,
+.font-weight-bold {
+  font-family: $font-sans;
+  font-weight: 600;
+}
+
+code,
+kbd,
+pre,
+samp,
+.more-info,
+.post-meta,
+.post-tags {
+  font-family: $font-mono;
+}
+
+.more-info {
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+}
+
+// ---------- scale ----------
+
+h1,
+.h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+h2,
+.h2 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+h3,
+.h3 {
+  font-size: 1.125rem;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+small,
+.small,
+.caption,
+.post-meta,
+.post-tags,
+.post-description {
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+// Page headers: the name on the landing page is the only "display" size on the site.
+.post-header {
+  margin-bottom: 1.75rem;
+
+  .post-title {
+    font-size: 1.75rem;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+
+    .font-weight-bold {
+      font-weight: 600;
+    }
+  }
+
+  .desc,
+  .post-description {
+    font-size: 1rem;
+    color: var(--global-text-color-light);
+    margin-bottom: 0;
+  }
+}
+
+.about .post-header .post-title,
+.post-header .post-title:has(.font-weight-bold) {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.header-bar h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+
+.header-bar h2 {
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+// ---------- navigation ----------
+
+.navbar {
+  .navbar-brand {
+    font-size: 1.125rem;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+
+    .font-weight-bold {
+      font-weight: 600;
+    }
+  }
+
+  .nav-link {
+    font-size: 0.9375rem;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .navbar-nav .nav-item.active > .nav-link {
+    font-weight: 600;
+  }
+}
+
+// ---------- publications ----------
+
+.publications {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2.bibliography {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--global-text-color-light);
+  }
+
+  ol.bibliography li {
+    margin-bottom: 1.25rem;
+
+    .abbr abbr.badge {
+      font-family: $font-sans;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      border-radius: 0.25rem;
+      padding: 0.35em 0.5em;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .author,
+    .periodical {
+      font-size: 0.9375rem;
+    }
+
+    .author em {
+      font-style: normal;
+      font-weight: 600;
+      border-bottom: none;
+    }
+
+    .links a.btn {
+      font-family: $font-sans;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.25rem;
+    }
+  }
+}
+
+// ---------- cards / projects ----------
+
+.projects {
+  h2.category {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--global-text-color-light);
+  }
+
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: none;
+    border: 1px solid var(--global-divider-color);
+    transition:
+      border-color 0.15s ease,
+      transform 0.15s ease;
+
+    &:hover {
+      border-color: var(--global-theme-color);
+      transform: translateY(-2px);
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+    }
+
+    .card-text {
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+// ---------- social icons ----------
+
+.contact-icons {
+  font-size: 2.25rem;
+
+  a {
+    margin: 0 0.25rem;
+  }
+}
