@@ -220,11 +220,15 @@ small,
 
 // Section headings the gem hard-codes in lowercase ("selected publications", "latest posts")
 .post > article > h2 {
-  text-transform: capitalize;
   font-size: 1.25rem; // a subheading: same size as the entry titles on the blog and notes pages
   font-weight: 600;
   margin-top: 3rem;
   margin-bottom: 1.25rem;
+}
+
+// only the gem's own hard-coded lowercase headings get capitalised; authored headings keep their case
+.post > article > h2 > a {
+  text-transform: capitalize;
 }
 
 // ---------- separation rules in the accent colour ----------
@@ -323,6 +327,14 @@ small,
 .post-content h3 {
   font-family: $font-sans;
   margin-top: 2rem;
+}
+
+// long display equations scroll sideways instead of being clipped by the reading measure
+.note-body mjx-container[display="true"],
+.post-content mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 }
 
 // ---------- entry lists (notes, blog): each entry opens with an accent rule carrying its date ----------
